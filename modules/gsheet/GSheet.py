@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 import sys
 import gspread
@@ -27,6 +27,7 @@ class GSheet:
             self.__client = gspread.authorize(creds)
             self.__sheet = self.__client.open(self.__gsheet_file).worksheet(self.__work_sheet)
         except Exception as ex:
+            print(ex)
             GSheet.LOGGER.error(ex)
             GSheet.LOGGER.error("Terminate program...")
             sys.exit()
@@ -86,6 +87,7 @@ class GSheet:
             sheet_data = self.__sheet.get_all_records()
             return sheet_data
         except Exception as ex:
+            print(ex)
             GSheet.LOGGER.error(ex)
             return None
         

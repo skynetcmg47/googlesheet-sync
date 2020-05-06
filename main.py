@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from modules.gsheet.GSheet import GSheet
 import json
 
