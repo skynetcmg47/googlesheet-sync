@@ -1,16 +1,25 @@
 #!/usr/bin/python3
 from modules.gsheet.GSheet import GSheet
 import json
-
+import logging
+import sys
 
 conf_path = "./conf/gsheet/gsheet.json"
+logging.basicConfig(level=logging.INFO,filename='app.log', filemode='a', format='%(asctime)-15s - %(name)s - %(levelname)s - %(message)s')
+LOGGER = logging.getLogger(__name__)
 
 def load_conf():
-	conf = None
-	with open(conf_path) as f:
-		conf = json.load(f)
-
-	return conf
+	try:
+		conf = None
+		LOGGER.info(f"Load config from: {conf_path}")
+		with open(conf_path) as f:
+			conf = json.load(f)
+		return conf
+	except Exception as ex:
+		print(ex)
+		LOGGER.error(ex)
+		sys.exit()
+		
 
 if __name__ == "__main__":
 	gsheet =  GSheet()
