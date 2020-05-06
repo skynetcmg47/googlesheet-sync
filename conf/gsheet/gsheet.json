@@ -1,0 +1,5 @@
+{
+	"credentialPath": "/home/nana/Job/gsheet/credentials/gdrive-api.json",
+	"spreadSheet": "gsheet_test",
+	"worksheet": "sheet1"
+}
